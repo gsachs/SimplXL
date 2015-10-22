@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
 
-    // Ayudha Pooje
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
