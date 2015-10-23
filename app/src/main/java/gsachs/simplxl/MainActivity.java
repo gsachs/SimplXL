@@ -11,7 +11,11 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+    public final static String NUMBERS = "com.mycompany.myfirstapp.NUMBERS";
+    public final static String OPERATION = "com.mycompany.myfirstapp.OPERATION";
+    public final static String ADD = "com.mycompany.myfirstapp.ADD";
+    public final static String AVERAGE = "com.mycompany.myfirstapp.AVERAGE";
+    public final static String DIVIDE = "com.mycompany.myfirstapp.DIVIDE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +48,43 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Called when the user clicks the Send button
      */
-    public void sendMessage(View view) {
+    public void addAllNumbers(View view) {
 
-        System.out.println("Clicked on send message");
+        System.out.print("Inside addAll");
+
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
         String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra(NUMBERS, message);
+        intent.putExtra(OPERATION, ADD);
+        startActivity(intent);
+    }
+
+    /**
+     * Called when the user clicks the Send button
+     */
+    public void findAverageOfNumbers(View view) {
+
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        EditText editText = (EditText) findViewById(R.id.edit_message);
+        String message = editText.getText().toString();
+        intent.putExtra(NUMBERS, message);
+        intent.putExtra(OPERATION, AVERAGE);
+        startActivity(intent);
+
+    }
+
+
+    /**
+     * Called when the user clicks the Send button
+     */
+    public void divideByCount(View view) {
+
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        EditText editText = (EditText) findViewById(R.id.edit_message);
+        String message = editText.getText().toString();
+        intent.putExtra(NUMBERS, message);
+        intent.putExtra(OPERATION, DIVIDE);
         startActivity(intent);
     }
 

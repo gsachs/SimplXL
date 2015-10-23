@@ -10,14 +10,55 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
-        // setContentView(R.layout.activity_display_message);
+
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(MainActivity.NUMBERS);
+        String operation = intent.getStringExtra(MainActivity.OPERATION);
+
+        String result = calculateResult(message, operation);
+
         TextView textView = new TextView(this);
         textView.setTextSize(40);
-        textView.setText(message);
+        textView.setText(result);
         setContentView(textView);
+    }
+
+
+    private String calculateResult(String message, String operation) {
+
+        String[] numbers = message.split("\n");
+        String result = "";
+
+        Integer sum = 0;
+
+
+        if (MainActivity.ADD.equals(operation)) {
+
+            for (String num : numbers) {
+                sum += new Integer(num);
+            }
+        } else if (MainActivity.AVERAGE.equals(operation)) {
+            for (String num : numbers) {
+                sum += new Integer(num);
+            }
+            Integer avg = sum / numbers.length;
+        } else if (MainActivity.DIVIDE.equals(operation)) {
+            for (String num : numbers) {
+                sum += new Integer(num);
+            }
+
+            Integer finalNum = new Integer(numbers[numbers.length - 1]);
+            sum = (sum - finalNum) / finalNum;
+
+        } else {
+            //result = "No luck today :(";
+        }
+
+        return sum.toString();
+
     }
 
     @Override
@@ -26,19 +67,4 @@ public class DisplayMessageActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_display_message, menu);
         return true;
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 }
