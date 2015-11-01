@@ -45,6 +45,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 sum += new Integer(num);
             }
             Integer avg = sum / numbers.length;
+            sum = avg;
         } else if (MainActivity.DIVIDE.equals(operation)) {
             for (String num : numbers) {
                 sum += new Integer(num);

@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
      */
     public void addAllNumbers(View view) {
 
-        System.out.print("Inside addAll");
 
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
